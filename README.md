@@ -9,5 +9,7 @@ haproxy.cfg - This is the file of configuration of haproxy. Ansible CN has conta
 
 For any queries:
 Contact me:
+
 Email: umeshtyagi829@gmail.com
+
 Linkedin: @umeshtyagi829
