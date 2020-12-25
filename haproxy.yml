@@ -1,0 +1,32 @@
+- hosts: WEB
+  tasks:
+  - name: "Install httpd package"
+    package:
+      name: "httpd"
+      state: present
+  
+  - name: "Copy file in the manage node"
+    copy:
+      dest: "/var/www/html/index.html"
+      content: "This is test for Load Balancer using Ansible PlayBook"
+
+  - name: "Start web-services"
+    service:
+            name: "httpd"
+            state: started
+
+- hosts: LB
+  tasks:
+  - name: "Install HA-Proxy"
+    package:
+            name: "haproxy"
+            state: present
+  - template:
+          src: "haproxy.cfg"
+          dest: "/etc/haproxy/haproxy.cfg"
+  - service:
+          name: "haproxy"
+          state: started
+
+
+ 
